@@ -43,8 +43,8 @@ def load_data_and_model():
         if not isinstance(text, str): return ""
         boosted_text = text
         if any(word in text for word in smoky_words): boosted_text += ' スモーキー' * 10
-        if any(word in text for word in fruity_words): boosted_text += ' フルーティー' * 1.5
-        if any(word in text for word in sherry_words): boosted_text += ' シェリー' * 1.5
+        if any(word in text for word in fruity_words): boosted_text += ' フルーティー' * 2
+        if any(word in text for word in sherry_words): boosted_text += ' シェリー' * 2
         return boosted_text
     
     df['tokens_boosted'] = df['tokens_cleaned'].apply(add_weights)
