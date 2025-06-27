@@ -43,8 +43,8 @@ def load_data_and_model():
         if not isinstance(text, str): return ""
         boosted_text = text
         if any(word in text for word in smoky_words): boosted_text += ' スモーキー' * 10
-        if any(word in text for word in fruity_words): boosted_text += ' フルーティー' * 10
-        if any(word in text for word in sherry_words): boosted_text += ' シェリー' * 10
+        if any(word in text for word in fruity_words): boosted_text += ' フルーティー' * 1.5
+        if any(word in text for word in sherry_words): boosted_text += ' シェリー' * 1.5
         return boosted_text
     
     df['tokens_boosted'] = df['tokens_cleaned'].apply(add_weights)
@@ -61,7 +61,7 @@ def load_data_and_model():
     return df, cosine_sim_matrix, indices
 
 # --- アプリケーションのUI部分（ここは変更なし） ---
-st.title('AIウイスキーソムリエ')
+st.title('ウイスキーおすすめ')
 st.write('あなたの好きなウイスキーを選ぶと、AIが風味の似たおすすめのウイスキーを提案します。')
 
 df, cosine_sim, indices = load_data_and_model()
