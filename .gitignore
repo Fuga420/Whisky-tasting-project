@@ -1,0 +1,14 @@
+# 仮想環境フォルダ
+.venv/
+
+# Pythonのキャッシュファイル
+__pycache__/
+*.pyc
+
+# VS Codeの設定フォルダ
+.vscode/
+
+# データセットや出力ファイル（容量が大きいので除外するのが一般的）
+output/
+*.csv
+whisky_urls.txt
