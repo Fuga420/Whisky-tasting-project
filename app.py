@@ -71,13 +71,13 @@ def recommend_by_flavor(keywords, vectorizer, tfidf_matrix, df, top_n=5):
 
 # --- アプリケーションのUI（見た目）部分 ---
 st.set_page_config(layout="wide")
-st.title('AIウイスキーソムリエ 🥃')
+st.title('ウイスキーレコメンドシステム')
 st.write('あなたの好みから、次の一本をお探しします。')
 
-with st.spinner('AIソムリエが厨房で準備をしています... 初回起動には数分かかります。'):
+with st.spinner('準備をしています... 初回起動には数分かかります。'):
     df, cosine_sim, indices, vectorizer, tfidf_matrix = load_data_and_model()
 
-st.success('準備が完了しました！いつでもご注文をどうぞ。')
+st.success('準備が完了しました！')
 
 # --- ▼▼▼ サイドバー（絞り込みオプション）の修正 ▼▼▼ ---
 st.sidebar.header('詳細検索オプション')
@@ -99,7 +99,6 @@ selected_regions = st.sidebar.multiselect(
     region_list
 )
 
-# ブランドのマルチセレクトはここから削除しました
 
 # --- メイン画面（検索機能） ---
 st.markdown("---")
